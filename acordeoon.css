@@ -1,0 +1,59 @@
+h1 {
+	text-align: center;
+	padding: 12px;
+	color: #444
+}
+
+
+
+.acordeon{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  border: 2px solid black;
+  --title-size: 20px;
+  --title-padding: 10px;
+}
+
+.acordeon > li{
+  --item-height: calc( var(--title-size) + (var(--title-padding) * 2) );
+  border: 1px solid  #48e;
+  height: var(--item-height);
+  overflow: hidden;
+  transition: height .25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.acordeon > li div{
+  flex: 1;
+  overflow-y: auto;
+}
+
+.acordeon > li.open{
+  height: calc( 100% - ( (var(--item-height) + 2px) * var(--items-qtty, 1) ) );
+}
+
+.acordeon > li:not(:last-child){
+  border-bottom-color: white;
+}
+
+.acordeon > li > h2{
+  margin: 0;
+  background:  #48e url(./flecha.svg) calc(100% - 20px) center/auto var(--title-size) no-repeat;
+  color: white;
+  font-size: var(--title-size);
+  line-height: var(--title-size);
+  padding: var(--title-padding);
+}
+
+.acordeon > li.open > h2{
+  background-color: #48e;
+  background-image: url(./flecha-2.svg);
+}
+
+.acordeon > li > div{
+  padding: 2em;
+}
